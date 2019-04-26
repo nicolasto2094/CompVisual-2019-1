@@ -8,11 +8,8 @@ void setup() {
   size(1150, 600);  
   img = loadImage("laDefense.jpg"); 
   pg = createGraphics(470, 400);
-  pg1 = createGraphics(470, 400);  
-  pg1.beginDraw();
-  pg1.background(0);
-  pg1.endDraw();
-  
+  pg1 = createGraphics(470, 400); 
+
   myMovie = new Movie(this, "transit.mp4");
   myMovie.loop();  
   myMovie.volume(0);
@@ -47,6 +44,9 @@ void draw() {
 
   if(option==5){matrix = matriz;option=6;}
   if(option==6){convolucion(matrix);}  
+  
+  if(option==7){histograma();}  
+  
 }
 
 void escalaGris(){  
@@ -164,7 +164,14 @@ void botones(){
   text("Aleatorio", xx+6+600, yy+h-10);  
   if(mouseX > xx+600 && mouseX < xx+w+600 && mouseY > yy && mouseY < yy+h&& mousePressed==true) {option=5;}
   
-  
+    
+  fill(130);
+  stroke(0);
+  rect(xx+750, yy, w+100, h,10);
+  fill(0);
+  text("Histograma + segmentación", xx+6+750, yy+h-10);  
+  if(mouseX > xx+750 && mouseX < xx+w+750 && mouseY > yy && mouseY < yy+h&& mousePressed==true) {option=7;}
+ 
   if(!select){
     fill(130);
     stroke(0);
@@ -176,10 +183,55 @@ void botones(){
     stroke(0);
     rect(xx, yy-60, w+100, h,10);
     fill(0);
-    text("Histograma", xx+6, yy+h-70); 
+    text("Imagen!", xx+6, yy+h-70); 
   } 
 
 }
+
+void histograma(){
+
+  int[] hist = new int[256];
+
+// Calculate the histogram
+  for (int i = 0; i < pg.width; i++) {
+    for (int j = 0; j < pg.height; j++) {
+      int bright = int(brightness(get(i+20, j+20)));
+      hist[bright]++; 
+    }
+  }
+
+  // Find the largest value in the histogram
+  int histMax = max(hist);
+
+  stroke(255);
+  for (int i = 0; i < pg.width; i += 2) {
+    int which = int(map(i, 0, pg.width, 0, 255));
+    int y = int(map(hist[which], 0, histMax, pg.height, 0));
+    line(i+20, pg.height+20, i+20, y+20);  
+    
+
+  }
+  if(mouseX>20 && mouseX<pg.width+20 && mouseY>20 && mouseY<pg.height+20){
+  segmentar();}
+}
+int posX;
+void segmentar(){
+  posX = (mouseX-20);
+  posX = (15*posX)/470;
+  pg1.beginDraw();    
+  int dimension = pg1.width * pg1.height;
+  pg1.loadPixels();
+  for (int i = 0; i < dimension; i++) {
+    if(brightness(pg.pixels[i])>=posX*17 && brightness(pg.pixels[i])<=(posX+1)*17){
+    pg1.pixels[i] = pg.pixels[i];}else{
+      pg1.pixels[i] = color(200);
+    }
+  }
+  pg1.updatePixels();
+  pg1.endDraw();
+  pintar(pg1);
+}
+
 void movieEvent(Movie m) {
   m.read();
 }
