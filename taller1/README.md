@@ -23,7 +23,7 @@ Complete la tabla:
 | Integrante | github nick |
 |------------|-------------|
 |Johan Nicolás Torres Memndoza|nicolasto2094|
-
+|Stefania Arguelles Reyes|sarguellesr|
 ## Discusión
 
 (describa brevemente las actividades realizadas y los resultados obtenidos)
