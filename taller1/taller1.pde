@@ -164,11 +164,20 @@ void botones(){
   text("Aleatorio", xx+6+600, yy+h-10);  
   if(mouseX > xx+600 && mouseX < xx+w+600 && mouseY > yy && mouseY < yy+h&& mousePressed==true) {option=5;}
   
-  fill(130);
-  stroke(0);
-  rect(xx, yy-60, w+100, h,10);
-  fill(0);
-  text("Cuadros por segundo: "+frameRate, xx+6, yy+h-70);  
+  
+  if(!select){
+    fill(130);
+    stroke(0);
+    rect(xx, yy-60, w+100, h,10);
+    fill(0);
+    text("Cuadros por segundo: "+frameRate, xx+6, yy+h-70); 
+  }else{
+     fill(130);
+    stroke(0);
+    rect(xx, yy-60, w+100, h,10);
+    fill(0);
+    text("Histograma", xx+6, yy+h-70); 
+  } 
 
 }
 void movieEvent(Movie m) {
