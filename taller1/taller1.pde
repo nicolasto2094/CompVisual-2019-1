@@ -170,7 +170,7 @@ void botones(){
   rect(xx+750, yy, w+100, h,10);
   fill(0);
   text("Histograma + segmentación", xx+6+750, yy+h-10);  
-  if(mouseX > xx+750 && mouseX < xx+w+750 && mouseY > yy && mouseY < yy+h&& mousePressed==true) {option=7;}
+  if(mouseX > xx+850 && mouseX < xx+w+850 && mouseY > yy && mouseY < yy+h&& mousePressed==true) {option=7;}
  
   if(!select){
     fill(130);
