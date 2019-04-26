@@ -22,7 +22,7 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
+|Johan Nicolás Torres Memndoza|nicolasto2094|
 
 ## Discusión
 
