@@ -8,8 +8,8 @@ float xOffset = 0.0;
 float yOffset = 0.0; 
 
 void setup(){
-  size(640, 360); 
-  img = loadImage("Catedral.jpg"); 
+  size(440, 660); 
+  img = loadImage("Arco.jpg"); 
   bx = width/2.0;
   by = height/2.0;
   rectMode(RADIUS);
