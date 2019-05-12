@@ -1,10 +1,11 @@
 void setup(){
   size(500, 500);
-  background(255, 255, 255);
+  background(0);
     
 }
 
 void draw(){
+  stroke(255, 255, 255);
   line(200, 200, 300, 200);
   line(200, 300, 300, 300);
   line(200, 200, 200, 300);
@@ -21,10 +22,10 @@ void draw(){
   line(250, 150, 300, 200);
   
   if(!mousePressed){    
-    stroke(0);
+    fill(0, 0, 255);
     square(200, 200, 100);    
   }else{
-    stroke(0);
+    fill(0, 0, 255);
     square(150, 150, 100);
   }
 }
