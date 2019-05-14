@@ -38,6 +38,7 @@ Las referencias estudiadas eran animaciones con comportamientos que presentaban 
 
 Sería muy interesante profundizar en técnicas que optimicen el desarrollo de videojuegos y animaciones.
 
+Otro tema de profundización, entender como el ojo se encarga de procesar las imágenes y como nuestra retina funciona de pre procesador.   
 ## Entrega
 
 * Hacer [fork](https://help.github.com/articles/fork-a-repo/) de la plantilla. Plazo: 12/5/19 a las 24h.
